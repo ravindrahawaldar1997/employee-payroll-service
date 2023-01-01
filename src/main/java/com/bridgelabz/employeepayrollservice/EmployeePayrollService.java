@@ -8,13 +8,17 @@ public class EmployeePayrollService {
     public enum IOService {
         CONSOLE_IO, FILE_IO, REST_IO
     };
+
     private List<EmployeePayrollData> employeePayrollList = new ArrayList<EmployeePayrollData>();
 
     public EmployeePayrollService(List<EmployeePayrollData> emList) {
         employeePayrollList = emList;
     }
+
     public static void main(String[] args) {
+
     }
+
     public void readEmployeePayrollData() {
         Scanner consoleInputReader = new Scanner(System.in);
         System.out.println("Enter Employee ID: ");
@@ -26,6 +30,7 @@ public class EmployeePayrollService {
         employeePayrollList.add(new EmployeePayrollData(id, name, salary));
         consoleInputReader.close();
     }
+
     /**
      * UC4
      *
@@ -38,6 +43,7 @@ public class EmployeePayrollService {
             new EmployeePayrollFileIOService().writeEmployeePayrollDate(employeePayrollList);
         }
     }
+
     public void printData(IOService printTo) {
         if (printTo.equals(IOService.FILE_IO))
             new EmployeePayrollFileIOService().printData();
